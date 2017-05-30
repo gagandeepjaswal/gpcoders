@@ -1,0 +1,27 @@
+
+<!--<div *ngIf="error?.length > 0">-->
+  <!--<ul class="list-group">-->
+    <!--<li style="font-size: 16px;" class="text-center list-group-item alert alert-danger" *ngFor="let gpError of error">*{{gpError.msg}}</li>-->
+  <!--</ul>-->
+<!--</div>-->
+
+<div *ngIf="error?.length > 0 ? lgModal.show() : ''"></div>
+
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #79C3F4;">
+        <h4 class="modal-title pull-left" style="color: white">Auth Erros !</h4>
+        <button type="button" class="close pull-right" (click)="gpHideModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group">
+          <li style="font-size: 16px;" class="text-center list-group-item alert alert-danger" *ngFor="let gpError of error">*{{gpError.msg}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
